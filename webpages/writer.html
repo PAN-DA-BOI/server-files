@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article Maker</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .image-upload {
+            margin: 10px 0;
+        }
+        hr {
+            height: 4px;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="text-center">Article Maker</h1>
+    <label>
+        <input type="radio" id="access" name="active">
+        Can the building still be accessed?
+    </label>
+
+    <div>
+        <h3>Title of your article</h3>
+        <textarea id="title" placeholder="Write the title here..."></textarea>
+    </div>
+
+    <div>
+        <h3>Paragraph 1: About</h3>
+        <textarea id="paragraph1" placeholder="A quick history about the place..."></textarea>
+    </div>
+
+    <div class="image-upload">
+        <h3>Upload Image 1: Exterior of the place</h3>
+        <input type="file" id="image1" accept="image/*">
+    </div>
+    <hr>
+
+    <div>
+        <h3>Paragraph 2: What happened and how things went</h3>
+        <textarea id="paragraph2" placeholder="Write about what you saw or what happened..."></textarea>
+    </div>
+
+    <div class="image-upload">
+        <h3>Upload Image 2: Selfie of everyone who went</h3>
+        <input type="file" id="image2" accept="image/*">
+    </div>
+    <hr>
+
+    <div>
+        <h3>Paragraph 3: Notes for future explorers</h3>
+        <textarea id="paragraph3" placeholder="Routes in and warnings about nearby things for who goes next..."></textarea>
+    </div>
+
+    <div class="image-upload">
+        <h3>Upload Image 3: Overhead image</h3>
+        <input type="file" id="image3" accept="image/*">
+    </div>
+
+    <button class="btn btn-primary mt-3" onclick="exportAsHTML()">Export as HTML</button>
+
+    <script>
+        async function exportAsHTML() {
+            const title = document.getElementById('title').value;
+            const paragraph1 = document.getElementById('paragraph1').value;
+            const paragraph2 = document.getElementById('paragraph2').value;
+            const paragraph3 = document.getElementById('paragraph3').value;
+            const isAccessible = document.getElementById('access').checked;
+
+            const image1Input = document.getElementById('image1');
+            const image2Input = document.getElementById('image2');
+            const image3Input = document.getElementById('image3');
+
+            let image1Base64 = '';
+            let image2Base64 = '';
+            let image3Base64 = '';
+
+            if (image1Input.files.length > 0) {
+                image1Base64 = await convertImageToBase64(image1Input.files[0]);
+            }
+            if (image2Input.files.length > 0) {
+                image2Base64 = await convertImageToBase64(image2Input.files[0]);
+            }
+            if (image3Input.files.length > 0) {
+                image3Base64 = await convertImageToBase64(image3Input.files[0]);
+            }
+
+            let htmlContent = `<!DOCTYPE html>
+<html>
+<head>
+  <title>${title}</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+<div class="container-fluid p-5 bg-primary text-white text-center">
+  <h1>${title}</h1>
+  <p>${paragraph1}</p>
+  <a href="./index.html" class="btn btn-secondary back-button">Back to Home</a>
+</div>
+<div class="container-fluid p-5 text-black text-center">
+    <p>${paragraph2}</p>
+</div>
+${image1Base64 ? `<img src="${image1Base64}" class="card-img-top img-fluid">` : ''}
+<div class="container-fluid p-5 text-black text-center">
+    <p>${paragraph3}</p>
+</div>
+${image2Base64 ? `<img src="${image2Base64}" class="card-img-top img-fluid">` : ''}
+<div class="container-fluid p-5 text-black text-center">
+    <p>Routes in and warnings about nearby things</p>
+</div>
+${image3Base64 ? `<img src="${image3Base64}" class="card-img-top img-fluid">` : ''}
+<div class="container-fluid p-5 bg-primary text-white text-center">
+  <h3>Check out the photo gallery and map below</h3>
+  <a href="./index.html" class="btn btn-secondary back-button">Photo Gallery</a>
+</div>
+</body>
+</html>`;
+
+            const blob = new Blob([htmlContent], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'article.html';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        function convertImageToBase64(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = () => resolve(reader.result);
+                reader.onerror = error => reject(error);
+                reader.readAsDataURL(file);
+            });
+        }
+    </script>
+</body>
+</html>`;
