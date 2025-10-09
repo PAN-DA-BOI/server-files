@@ -1,4 +1,4 @@
-<!DOCclass html>
+<!DOCTYPE html>
 <html>
 <head>
   <title>Home Page</title>
@@ -9,37 +9,71 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <div class="container-fluid p-5 bg-primary text-white text-center">
+    <h1><b>Urbex Utah</b></h1>
+    <p>An urbex group local to the Davis district area of Utah</p>
+  </div>
 
-<div class="container-fluid p-5 bg-primary text-white text-center">
-  <h1>My First Bootstrap Page</h1>
-  <p>Resize this responsive page to see the effect!</p> 
-  <a href="./index.html" class="btn btn-secondary back-button">Back to Home</a>
-</div>
-
-
-
-
-
-<div class="container mt-5">
-  <div class="row">
-    <div class="col-sm-4">
-      <h3>Request Gear and Kits</h3>
-      <p>Use this to request gear and kits for exploration. Make sure you have a clear plan and bring everything necessary to complete that plan.</p>
-      <a class="button" href="./shop.html"><button>shop</button></a>
+  <div class="container mt-4">
+    <div class="row g-3">
+      <div class="col-md-4 d-flex">
+        <div class="card flex-fill">
+          <div class="card-body text-center">
+            <h3 class="card-title">Gear and Kits</h3>
+            <p class="card-text">Use this to request gear and kits for expeditions. Make sure you have a clear plan and bring everything necessary to complete that plan.</p>
+            <a class="button" href="./shop.html"><button class="btn btn-primary">Shop</button></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 d-flex">
+        <div class="card flex-fill">
+          <div class="card-body text-center">
+            <h3 class="card-title">Request Forms</h3>
+            <p class="card-text">This form is to request help from any number of people. Whether you need help with writing an article, learning to repel, or with scouting.</p>
+            <a class="button" href="./requests/request-form.html"><button class="btn btn-primary">Help Request</button></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 d-flex">
+        <div class="card flex-fill">
+          <div class="card-body text-center">
+            <h3 class="card-title">Articles</h3>
+            <p class="card-text">See what's been happening lately in the community.</p>
+            <a class="button" href="./articles.html"><button class="btn btn-primary">Articles</button></a>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="col-sm-4">
-      <h3>Personnel request form</h3>
-      <p>This form is to request help from any number of people. Whether you need help with writing an article, learning to repel, or with scouting.</p>
-      <a class="button" href="#"><button>help request</button></a>
-    </div>
-    <div class="col-sm-4">
-      <h3>Articles</h3>        
-      <p>See whats been happening lately in the community </p>
-      <a class="button" href="./articles.html"><button>articles</button></a>
+
+    <div class="row g-3 mt-2">
+      <div class="col-md-4 d-flex">
+        <div class="card flex-fill">
+          <div class="card-body text-center">
+            <h3 class="card-title">Map</h3>
+            <p class="card-text">A map that shows all the bandos nearby or far away.</p>
+            <a class="button" href="./map/map.html"><button class="btn btn-primary">Map</button></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 d-flex">
+        <div class="card flex-fill">
+          <div class="card-body text-center">
+            <h3 class="card-title">Calendar</h3>
+            <p class="card-text">Check upcoming expeditions and join some fun.</p>
+            <a class="button" href="./calendar/calendar.html"><button class="btn btn-primary">Calendar</button></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 d-flex">
+        <div class="card flex-fill">
+          <div class="card-body text-center">
+            <h3 class="card-title">Join the Discord</h3>
+            <p class="card-text">Find community in our Discord server.</p>
+            <a class="button" href="https://discord.gg/tSK3ZnQv"><button class="btn btn-primary">Discord</button></a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
-
- 
 </body>
 </html>
