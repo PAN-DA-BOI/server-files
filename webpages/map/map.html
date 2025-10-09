@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fullscreen Map with Locations</title>
+    <title>Map</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="map.css">
 </head>
 <body>
     <!-- Home Button -->
-    <div class="home-box">
-        <a href="../index.html" class="btn btn-secondary">Back to Home</a>
-    </div>
-
-    <!-- Point Controls -->
-    <div class="control-box">
-        <div class="mt-2">
+    <div class="home-box container">
+		<div class="row">
+			<center>
+				<a href="../index.html" class="button">Back to Home</a>
+			</center>
+		</div>
+		<br>
+		<div class="row">
             <label for="maxPoints">Max Points:</label>
             <input type="number" id="maxPoints" class="form-control" value="200" min="10" max="10000" step="10">
             <button id="updateMaxPoints" class="btn btn-primary mt-2">Update</button>

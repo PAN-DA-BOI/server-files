@@ -1,48 +1,37 @@
 // Calendar state
 let currentDate = new Date();
-let events = JSON.parse(localStorage.getItem('calendarEvents')) || {};
+
+// Predefined events (add your events here)
+const events = {
+//	"2025-10-05": [
+//        { title: "Team Training", type: "training" },
+//    ],
+//    "2025-10-10": [
+//        { title: "Urban Exploration", type: "exploration" },
+//    ],
+//    "2025-10-15": [
+//        { title: "Monthly Meeting", type: "meeting" },
+//    ],
+//    "2025-10-20": [
+//        { title: "Advanced Training", type: "training" },
+//    ],
+//    "2025-10-25": [
+//        { title: "Exploration Trip", type: "exploration" },
+//    ],
+};
 
 // Initialize the calendar
 function initCalendar() {
     renderCalendar(currentDate);
+
     document.getElementById('prevMonth').addEventListener('click', () => {
         currentDate.setMonth(currentDate.getMonth() - 1);
         renderCalendar(currentDate);
     });
+
     document.getElementById('nextMonth').addEventListener('click', () => {
         currentDate.setMonth(currentDate.getMonth() + 1);
         renderCalendar(currentDate);
-    });
-
-    // Event modal handling
-    const eventModal = new bootstrap.Modal(document.getElementById('eventModal'));
-    let selectedDate = null;
-
-    document.querySelectorAll('.day').forEach(day => {
-        day.addEventListener('click', (e) => {
-            selectedDate = e.currentTarget.getAttribute('data-date');
-            document.getElementById('eventDate').value = formatDate(new Date(selectedDate));
-            eventModal.show();
-        });
-    });
-
-    document.getElementById('saveEvent').addEventListener('click', () => {
-        const title = document.getElementById('eventTitle').value;
-        const type = document.getElementById('eventType').value;
-
-        if (!title) {
-            alert('Please enter an event title');
-            return;
-        }
-
-        if (!events[selectedDate]) {
-            events[selectedDate] = [];
-        }
-
-        events[selectedDate].push({ title, type });
-        localStorage.setItem('calendarEvents', JSON.stringify(events));
-        renderCalendar(currentDate);
-        eventModal.hide();
     });
 }
 
@@ -88,13 +77,6 @@ function renderCalendar(date) {
                 dayElement.appendChild(eventElement);
             });
         }
-
-        dayElement.addEventListener('click', (e) => {
-            selectedDate = dayString;
-            document.getElementById('eventDate').value = formatDate(new Date(selectedDate));
-            const eventModal = new bootstrap.Modal(document.getElementById('eventModal'));
-            eventModal.show();
-        });
 
         calendarElement.appendChild(dayElement);
     }

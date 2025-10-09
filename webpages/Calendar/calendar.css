@@ -40,11 +40,6 @@ body {
     overflow: hidden;
 }
 
-.day:hover {
-    background-color: #f1f3f5;
-    cursor: pointer;
-}
-
 .day.today {
     background-color: #fff3cd;
 }
