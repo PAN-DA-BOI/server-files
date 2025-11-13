@@ -94,3 +94,28 @@ body {
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+    .done-button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      margin-left: 10px;
+      cursor: pointer;
+      border-radius: 3px;
+    }
+    .done-button.done {
+      background-color: #45a049;
+    }
+    .lesson {
+      cursor: pointer;
+      padding: 8px;
+      margin: 5px 0;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+}
+.lesson.unlocked {
+  background-color: #f0f8ff;
+}

@@ -13,6 +13,7 @@
       <div class="imgcontainer">
         <img src="https://www.w3schools.com/howto/img_avatar2.png" alt="Avatar" class="avatar">
       </div>
+      <a href="../index.html" class="button">Back to Home</a>
       <div class="container">
         <label for="uname"><b>Username</b></label>
         <input type="text" placeholder="Enter Username" name="uname" required>
@@ -25,30 +26,60 @@
       </div>
     </form>
   </div>
-
+  <a href="../index.html" class="button">Back to Home</a>
   <div class="main-container" id="mainContainer" style="display: none;">
     <div class="container-fluid">
-	<h1 style="font-weight: bold; color: #e9e9e9;">Urbex and Operations School</h1>
+      <h1 style="font-weight: bold; color: #e9e9e9;">Urbex and Operations School</h1>
       <div class="row">
         <div class="col-md-3">
           <button type="button" class="collapsible">Section 1: Intro</button>
           <div class="option">
-            <div class="lesson" data-lesson="1-1">Lesson 1.1: Introduction</div>
-			<div class="lesson" data-lesson="1-2">Lesson 1.2: Chapters</div>
+            <div class="lesson" data-lesson="1-1">
+              Lesson 1.1: Introduction
+              <button class="done-button" data-lesson="1-1">Mark as Done</button>
+            </div>
+            <div class="lesson" data-lesson="1-2">
+              Lesson 1.2: Chapters
+              <button class="done-button" data-lesson="1-2">Mark as Done</button>
+            </div>
           </div>
           <button type="button" class="collapsible">Section 2: COMMS</button>
           <div class="option">
-            <div class="lesson" data-lesson="2-1">Lesson 2.1: Intro To COMMS</div>
-            <div class="lesson" data-lesson="2-2">Lesson 2.2: The 'Four Way Radio' Setup</div>
-			<div class="lesson" data-lesson="2-3">Lesson 2.3: The 'No Radio' Setup</div>
-			<div class="lesson" data-lesson="2-4">Lesson 2.4: COMMS Basics</div>
+            <div class="lesson" data-lesson="2-1">
+              Lesson 2.1: Intro To COMMS
+              <button class="done-button" data-lesson="2-1">Mark as Done</button>
+            </div>
+            <div class="lesson" data-lesson="2-2">
+              Lesson 2.2: The 'Four Way Radio' Setup
+              <button class="done-button" data-lesson="2-2">Mark as Done</button>
+            </div>
+            <div class="lesson" data-lesson="2-3">
+              Lesson 2.3: The 'No Radio' Setup
+              <button class="done-button" data-lesson="2-3">Mark as Done</button>
+            </div>
+            <div class="lesson" data-lesson="2-4">
+              Lesson 2.4: COMMS Basics
+              <button class="done-button" data-lesson="2-4">Mark as Done</button>
+            </div>
           </div>
-		  <button type="button" class="collapsible">Section 3: Operations </button>
+          <button type="button" class="collapsible">Section 3: Operations</button>
           <div class="option">
-            <div class="lesson" data-lesson="3-1">Lesson 3.1: Intro To Operations</div>
-            <div class="lesson" data-lesson="3-2">Lesson 3.2: RECON Operation</div>
-			<div class="lesson" data-lesson="3-3">Lesson 3.3: Bastion Operation</div>
-			<div class="lesson" data-lesson="3-4">Lesson 3.4: Cashe and Store Operation</div>
+            <div class="lesson" data-lesson="3-1">
+              Lesson 3.1: Intro To Operations
+              <button class="done-button" data-lesson="3-1">Mark as Done</button>
+            </div>
+            <div class="lesson" data-lesson="3-2">
+              Lesson 3.2: RECON Operation
+              <button class="done-button" data-lesson="3-2">Mark as Done</button>
+            </div>
+            <div class="lesson" data-lesson="3-3">
+              Lesson 3.3: Bastion Operation
+              <button class="done-button" data-lesson="3-3">Mark as Done</button>
+            </div>
+            <div class="lesson" data-lesson="3-4">
+              Lesson 3.4: Cashe and Store Operation
+              <button class="done-button" data-lesson="3-4">Mark as Done</button>
+            </div>
           </div>
         </div>
         <div class="col-md-9">
@@ -59,7 +90,7 @@
       </div>
     </div>
   </div>
-
   <script src="script.js"></script>
+  <script src="progress.js"></script>
 </body>
 </html>
