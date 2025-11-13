@@ -1,0 +1,96 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color:#222f4d;
+  margin: 0;
+  padding: 0;
+}
+
+.login-container {
+  width: 300px;
+  margin: 100px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+.avatar {
+  width: 100px;
+  border-radius: 50%;
+}
+
+.container input[type="text"], .container input[type="password"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.container button {
+  background-color: #2b6bff;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.container button:hover {
+  opacity: 0.8;
+}
+
+.collapsible {
+  background-color: #2b6bff;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 18px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+}
+
+.active, .collapsible:hover {
+  background-color: #0f27bf;
+}
+
+.option {
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.lesson {
+  padding: 10px;
+  margin: 5px 0;
+  background-color: #e9e9e9;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.lesson:hover {
+  background-color: #ddd;
+}
+
+#lesson-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
