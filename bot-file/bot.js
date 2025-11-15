@@ -6,8 +6,6 @@ const FREAK_ROLE_ID = '1342651227745288222';      // Replace with your "FREAK" r
 const EXPLORER_ROLE_ID = '1339019995555954708'; // Replace with your "explorer" role ID
 const ADMIN_CHANNEL_ID = '1339025302780645407'; // Replace with your admin channel ID
 
-const { Client, IntentsBitField } = require('discord.js');
-
 const client = new Client({
   intents: [
     IntentsBitField.Flags.Guilds,
@@ -79,6 +77,19 @@ client.on('messageCreate', async (message) => {
       const dumbThings = data.split('\n').filter(line => line.trim() !== '');
       if (dumbThings.length === 0) {
         return message.reply('The dumb.txt file is empty!');
+      }
+      const dumbThing = dumbThings[Math.floor(Math.random() * dumbThings.length)];
+      message.reply(`${dumbThing}`);
+    });
+  }
+  else if (message.content === 'urbeus, do something freaky') {
+    fs.readFile('freak.txt', 'utf8', (err, data) => {
+      if (err) {
+        return message.reply('The freak.txt file is missing or empty!');
+      }
+      const dumbThings = data.split('\n').filter(line => line.trim() !== '');
+      if (dumbThings.length === 0) {
+        return message.reply('The freak.txt file is empty!');
       }
       const dumbThing = dumbThings[Math.floor(Math.random() * dumbThings.length)];
       message.reply(`${dumbThing}`);
