@@ -1,24 +1,3 @@
-// Login functionality
-document.getElementById("loginForm").addEventListener("submit", function(e) {
-  e.preventDefault();
-  const username = e.target.uname.value;
-  const password = e.target.psw.value;
-  // Simple client-side "authentication" (for demo only)
-  if (username && password) {
-    localStorage.setItem("isLoggedIn", "true");
-    document.getElementById("loginContainer").style.display = "none";
-    document.getElementById("mainContainer").style.display = "block";
-    loadProgress();
-  }
-});
-
-// Check if user is already logged in
-if (localStorage.getItem("isLoggedIn") === "true") {
-  document.getElementById("loginContainer").style.display = "none";
-  document.getElementById("mainContainer").style.display = "block";
-  loadProgress();
-}
-
 // Collapsible sections
 var coll = document.getElementsByClassName("collapsible");
 for (let i = 0; i < coll.length; i++) {
@@ -26,12 +5,13 @@ for (let i = 0; i < coll.length; i++) {
     this.classList.toggle("active");
     var content = this.nextElementSibling;
     if (content.style.maxHeight) {
-      content.style.maxHeight = null;
+      content.style.maxHeight = "0";
     } else {
       content.style.maxHeight = content.scrollHeight + "px";
     }
   });
 }
+
 //"#-#": { title: "", content: ""},
 // Lesson content
 const lessons = {
