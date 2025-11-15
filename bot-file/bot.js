@@ -2,16 +2,16 @@ const { Client, IntentsBitField, PermissionsBitField } = require('discord.js');
 const fs = require('fs');
 
 // Replace these with your actual IDs
-const FREAK_ROLE_ID = '1342651227745288222';      // Replace with your "FREAK" role ID
-const EXPLORER_ROLE_ID = '1339019995555954708'; // Replace with your "explorer" role ID
-const ADMIN_CHANNEL_ID = '1339025302780645407'; // Replace with your admin channel ID
+const FREAK_ROLE_ID = '1342651227745288222';
+const EXPLORER_ROLE_ID = '1339019995555954708';
+const ADMIN_CHANNEL_ID = '1339025302780645407';
 
 const client = new Client({
   intents: [
     IntentsBitField.Flags.Guilds,
-    IntentsBitField.Flags.GuildMembers, // Required for member-related events
+    IntentsBitField.Flags.GuildMembers,
     IntentsBitField.Flags.GuildMessages,
-    IntentsBitField.Flags.MessageContent, // Required for message content
+    IntentsBitField.Flags.MessageContent,
   ],
 });
 
