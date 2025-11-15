@@ -6,14 +6,17 @@ const FREAK_ROLE_ID = '1342651227745288222';      // Replace with your "FREAK" r
 const EXPLORER_ROLE_ID = '1339019995555954708'; // Replace with your "explorer" role ID
 const ADMIN_CHANNEL_ID = '1339025302780645407'; // Replace with your admin channel ID
 
+const { Client, IntentsBitField } = require('discord.js');
+
 const client = new Client({
   intents: [
     IntentsBitField.Flags.Guilds,
-    IntentsBitField.Flags.GuildMembers,
+    IntentsBitField.Flags.GuildMembers, // Required for member-related events
     IntentsBitField.Flags.GuildMessages,
-    IntentsBitField.Flags.MessageContent,
+    IntentsBitField.Flags.MessageContent, // Required for message content
   ],
 });
+
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}`);
@@ -78,7 +81,7 @@ client.on('messageCreate', async (message) => {
         return message.reply('The dumb.txt file is empty!');
       }
       const dumbThing = dumbThings[Math.floor(Math.random() * dumbThings.length)];
-      message.reply(`Here's something dumb: ${dumbThing}`);
+      message.reply(`${dumbThing}`);
     });
   }
   // Listen for messages containing "custom" and "kit"
